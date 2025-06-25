@@ -1,0 +1,108 @@
+1.  var
+    Scope: Function-scoped. If declared inside a function, it’s only accessible within that function. If declared outside, it becomes globally scoped.
+
+Hoisting: var is hoisted to the top of its scope and initialized with undefined.
+
+Re-declaration: Allowed in the same scope.
+
+Re-assignment: Allowed.
+
+Example:
+
+javascript
+Copy
+Edit
+function demoVar() {
+console.log(a); // undefined (hoisted)
+var a = 10;
+console.log(a); // 10
+}
+demoVar();
+Use case: You might see var in legacy code, but it's not recommended in modern JavaScript due to unpredictable behavior with hoisting and scope.
+
+🔸 2. let
+Scope: Block-scoped. It is only accessible within the block {} it is defined in.
+
+Hoisting: let is hoisted but not initialized. Accessing it before declaration gives a ReferenceError (due to Temporal Dead Zone).
+
+Re-declaration: Not allowed in the same scope.
+
+Re-assignment: Allowed.
+
+Example:
+
+javascript
+Copy
+Edit
+function demoLet() {
+// console.log(b); ❌ ReferenceError
+let b = 20;
+console.log(b); // ✅ 20
+}
+demoLet();
+Use case: Use let when the value of the variable needs to change, especially inside loops or conditional blocks.
+
+🔸 3. const
+Scope: Block-scoped (same as let)
+
+Hoisting: Hoisted but not initialized (also in Temporal Dead Zone)
+
+Re-declaration: Not allowed
+
+Re-assignment: ❌ Not allowed
+
+Note: If the const variable holds an object or array, the reference can't change, but internal values can.
+
+Example:
+
+javascript
+Copy
+Edit
+const PI = 3.14;
+// PI = 3.1415; ❌ TypeError
+
+const person = { name: "Leela" };
+person.name = "Kiran"; // ✅ Allowed
+console.log(person); // { name: "Kiran" }
+Use case: Use const when you don’t want the variable to be reassigned — this makes your code safer and more predictable.
+
+🧠 Key Differences Summary Table:
+Feature var let const
+Scope Function Block Block
+Hoisting Yes (undefined) Yes (TDZ error) Yes (TDZ error)
+Re-declarable ✅ Yes ❌ No ❌ No
+Re-assignable ✅ Yes ✅ Yes ❌ No
+
+= → Assignment Operator
+Used to assign a value to a variable.
+
+javascript
+Copy
+Edit
+let x = 10; // Assigns value 10 to variable x
+🔹 == → Loose Equality (Abstract Equality)
+Compares values only, ignores data types.
+
+If the types are different, JavaScript will coerce (convert) them before comparison.
+
+javascript
+Copy
+Edit
+console.log(5 == '5'); // ✅ true (string '5' is converted to number 5)
+console.log(null == undefined); // ✅ true (both considered loosely equal)
+🔹 === → Strict Equality
+Compares both value and data type.
+
+No type coercion is done.
+
+javascript
+Copy
+Edit
+console.log(5 === '5'); // ❌ false (number !== string)
+console.log(5 === 5); // ✅ true
+console.log(null === undefined); // ❌ false (different types)
+🔁 Comparison Table:
+Operator Name Compares Does Type Coercion? Example Result
+= Assignment Assigns value N/A let x = 10; x = 10
+== Loose Equality Value only ✅ Yes 5 == '5' true
+=== Strict Equality Value + Type ❌ No 5 === '5' false
