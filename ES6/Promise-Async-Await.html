@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="list-of-products"></div>
+    <!-- Chinnu Promise -->
+    <script>
+      var users = [];
+      function getData() {
+        return new Promise((resolve, reject) => {
+          fetch("https://jsonplaceholder.typicode.com/users")
+            .then((rawdata) => {
+              console.log(rawdata);
+              return rawdata.json();
+            })
+            .then((data) => {
+              console.log(data);
+              users = data;
+              resolve();
+            });
+        });
+      }
+      function displayData() {
+        console.log("Users In displayData() >>> ", users);
+      }
+
+      async function handleAsyncData() {
+        await getData();
+        displayData();
+      }
+
+      handleAsyncData();
+      // getData().then(()=>{
+      //     displayData();
+      // })
+      //    <!-- Chinnu Promise ends-->
+
+      //Async &await
+
+      let getListOfProducts = document.getElementById("list-of-products");
+
+      // Third crate a displayProduct Function
+      function renderProducts(getProducts) {
+        // getListOfProducts.innerHTML = getProducts.map(
+        //   (singleProductItem) => `<p>${singleProductItem.title}</p>`
+        // ).join(" ");
+        getProducts.map((item) => {
+          var element = document.createElement("p");
+          element.innerHTML = item.title;
+          getListOfProducts.appendChild(element);
+        });
+      }
+
+      //Second Create a function
+      async function fetctListOfProducts() {
+        //Here we are taking try block
+        try {
+          // exceptionHandling
+          const apiResponse = await fetch("https://dummyjson.com/products");
+          // Here we give get method
+          metod: "GET";
+          const result = await apiResponse.json();
+          console.log(result);
+          // After checking products in clg the we are going to render this products so create if
+          if (result?.products?.length > 0) renderProducts(result?.products);
+        } catch (e) {
+          console.log(e);
+        }
+      }
+      // first i will be creating a method here fetchListOfProducts
+      fetctListOfProducts();
+    </script>
+  </body>
+</html>

@@ -233,27 +233,3 @@ let getIndexFromBlr = personArray.findIndex((singlePerson) => {
 });
 
 console.log(getIndexFromBlr);
-
-let getListOfProducts = document.querySelector(".list-of-products");
-function renderProducts(getProducts) {
-  getListOfProducts.innerHTML = getProducts.map(singleProductItem);
-}
-
-//Second Create a function
-async function fetctListOfProducts() {
-  //Here we are taking try block
-  try {
-    // exceptionHandling
-    const apiResponse = await fetch("https://dummyjson.com/products");
-    // Here we give get method
-    metod: "GET";
-    const result = await apiResponse.json();
-    console.log(result);
-    // After checking products in clg the we are going to render this products so create if
-    if (result?.products?.length > 0) renderProducts(result?.products);
-  } catch (e) {
-    console.log(e);
-  }
-}
-// first i will be creating a method here fetchListOfProducts
-fetctListOfProducts();
