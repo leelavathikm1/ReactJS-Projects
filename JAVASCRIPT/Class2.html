@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class commnEmpDetails {
+        constructor(compName, city, state, zip) {
+          this.compName = "IBM";
+          this.city = "Bangalore";
+          this.state = "Karnataka";
+          this.zip = 560066;
+        }
+      }
+
+      class EmployeeDetails extends commnEmpDetails {
+        constructor(fName, lName, email, empid) {
+          super();
+          this.fName = fName;
+          this.lName = lName;
+          this.email = email;
+          this.empid = empid;
+        }
+      }
+
+      var employee1 = new EmployeeDetails(
+        "Leela",
+        "KM",
+        "leelakm@gmail.com",
+        "A01"
+      );
+      var employee2 = new EmployeeDetails(
+        "Murali",
+        "V",
+        "murali@gmail.com",
+        "A02"
+      );
+      var employee3 = new EmployeeDetails(
+        "Gayathri",
+        "VM",
+        "gayathre@gmail.com",
+        "A03"
+      );
+      var employee4 = new EmployeeDetails(
+        "Krishna",
+        "VM",
+        "krishna@gmail.com",
+        "A04"
+      );
+
+      console.log(employee1);
+      console.log(employee2);
+      console.log(employee3);
+      console.log(employee4);
+    </script>
+  </body>
+</html>
