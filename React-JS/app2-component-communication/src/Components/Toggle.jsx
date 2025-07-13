@@ -16,9 +16,15 @@ export default class Toggle extends Component {
     return (
       <div>
         <button type="button" onClick={this.handleToggle}>
+          {/* Type2 */}
+          {/* {this.state.isVisible === true ? "show " : "Hide "} */}
+          {/* Type3 */}
+          {this.state.isVisible ? "Show " : "Hide"}
           Paragraph
         </button>
-        {this.state.isVisible && <p>Welcome To Toggle text</p>}
+        {/* Type1 */}
+        {/* {this.state.isVisible && <p>Welcome To Toggle text</p>} */}
+        {this.state.isVisible}
       </div>
     );
   }

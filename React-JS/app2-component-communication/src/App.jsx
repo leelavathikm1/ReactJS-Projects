@@ -6,6 +6,7 @@ import MuraliClassComp from "./Components/MuraliClassComp";
 import UserClassComp from "./Components/UserClassComp";
 import StudentClassComp from "./Components/StudentClassComp";
 import Toggle from "./Components/Toggle";
+import Task1Toggle from "./Components/Task1-Toggle";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -15,8 +16,9 @@ function App() {
       {
         /* <MuraliClassComp /> */
         // <UserClassComp />
-        <Toggle />
+        // <Toggle />
         // <StudentClassComp />
+        <Task1Toggle />
       }
     </div>
   );
