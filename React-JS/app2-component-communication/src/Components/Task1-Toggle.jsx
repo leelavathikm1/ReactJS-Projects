@@ -4,7 +4,7 @@ export default class Task1Toggle extends Component {
   constructor() {
     super();
     this.state = {
-      isVisible: false,
+      isVisible: true,
     };
   }
 
@@ -16,11 +16,11 @@ export default class Task1Toggle extends Component {
     return (
       <div>
         <button type="button" onClick={this.handleToggle}>
-          {this.state.isVisible === true ? "Show " : "Hide "}
+          {/* {this.state.isVisible === true ? "Show " : "Hide "} */}
           {/* {this.state.isVisible ? "Hide " : "Show "} */}
           Paragraph
         </button>
-        {/* {this.state.isVisible && <p>Welcome To Toggle</p>} */}
+        {this.state.isVisible && <p>Welcome To Toggle</p>}
       </div>
     );
   }
