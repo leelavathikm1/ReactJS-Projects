@@ -10,16 +10,17 @@ class ParentTwo extends Component {
     };
   }
 
-  receiveDataFromChild = (msg) => {
-    console.log("DataFrom Chi;d", msg);
+  recevieDataFromChild = (msg) => {
+    console.log("Data FromChild", msg);
+    this.setState({ message: msg });
   };
-
   render() {
     return (
       <div>
         Hi ParentTWo
         <hr />
-        <ChildTwo getInfo={this.receiveDataFromChild} />
+        <h3>{this.state.message}</h3>
+        <ChildTwo getInfo={this.recevieDataFromChild} />
       </div>
     );
   }

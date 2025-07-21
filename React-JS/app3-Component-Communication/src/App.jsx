@@ -5,6 +5,7 @@ import "./App.css";
 import Parent from "./Comp-Communication/Parent";
 import ParentTwo from "./Comp-Communication/ParentTwo";
 import ParentOne from "./Comp-Communication/ParentOne";
+import SiblingsComp from "./Comp-Communication/SiblingsComp";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -13,7 +14,8 @@ function App() {
     <>
       {/* <Parent /> */}
       {/* <ParentTwo /> */}
-      <ParentOne />
+      {/* <ParentOne /> */}
+      <SiblingsComp />
     </>
   );
 }

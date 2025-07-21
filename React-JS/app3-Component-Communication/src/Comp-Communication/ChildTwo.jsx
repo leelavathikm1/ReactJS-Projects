@@ -5,11 +5,21 @@ class ChildTwo extends Component {
     super(props);
 
     this.state = {
-      first,
+      message: "Iam Coming From Child Component",
     };
   }
+  sendDataToParent = () => {
+    this.props.getInfo(this.state.message);
+  };
+
   render() {
-    return <div>ChildTwo</div>;
+    console.log(this.props);
+    return (
+      <div>
+        <h2>Iam From ChildTwo</h2>
+        <button onClick={this.sendDataToParent}>Send data TO Parent</button>
+      </div>
+    );
   }
 }
 
