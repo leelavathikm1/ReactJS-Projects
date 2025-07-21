@@ -4,6 +4,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import Parent from "./Comp-Communication/Parent";
 import ParentTwo from "./Comp-Communication/ParentTwo";
+import ParentOne from "./Comp-Communication/ParentOne";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -11,7 +12,8 @@ function App() {
   return (
     <>
       {/* <Parent /> */}
-      <ParentTwo />
+      {/* <ParentTwo /> */}
+      <ParentOne />
     </>
   );
 }
