@@ -12,6 +12,7 @@ export class UserCrud extends Component {
       },
 
       users: [],
+      editIndex: null,
     };
   }
 
@@ -44,7 +45,8 @@ export class UserCrud extends Component {
     this.setState({ user: newUser });
   };
 
-  handleEdit = (usr) => {
+  handleEdit = (usr, i) => {
+    this.setState({ user: usr, editIndex: i });
     console.log(usr);
   };
 
@@ -57,6 +59,13 @@ export class UserCrud extends Component {
     deluser.splice(i, 1);
     this.setState({ users: deluser });
     console.log(deluser);
+  };
+
+  handleUpdate = () => {
+    const newUsers = [...this.state.users];
+    newUsers[this.state.editIndex] = this.state.user;
+    this.setState({ users: newUsers });
+    this.handleReset();
   };
 
   render() {
@@ -107,9 +116,17 @@ export class UserCrud extends Component {
             onChange={this.handleChange}
           />
           <br />
-          <button type="button" onClick={this.handleSubmit}>
+          {this.state.editIndex === null ? (
+            <input type="button" value="Submit" onClick={this.handleSubmit} />
+          ) : (
+            <input type="button" value="Update" onClick={this.handleUpdate} />
+          )}
+          {/* <button type="button" onClick={this.handleSubmit}>
             Submit
           </button>
+           <button type="button" onClick={this.handleUpdate}>
+              Update
+            </button> */}
         </form>
         <hr />
         <table border="1">
@@ -134,7 +151,7 @@ export class UserCrud extends Component {
                   <td>
                     <button
                       onClick={() => {
-                        this.handleEdit(usr);
+                        this.handleEdit(usr, i);
                       }}
                     >
                       Edit
