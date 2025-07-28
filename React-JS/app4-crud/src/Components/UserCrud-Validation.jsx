@@ -65,20 +65,20 @@ class UserCrudValidation extends Component {
       <div>
         <h2>Welcome to User Crud Validation</h2>
         <form>
-          <label htmlFor="">Enter Name</label> <br />
+          <label htmlFor="name">Enter Name</label> <br />
           <input
             type="text"
             name="name"
-            value={this.state.name}
+            value={this.state.user.name}
             onChange={this.handleChange}
           />
           <br />
-          <label htmlFor="">Enter email</label>
+          <label htmlFor="email">Enter email</label>
           <br />
           <input
             type="email"
             name="email"
-            value={this.state.email}
+            value={this.state.user.email}
             onChange={this.handleChange}
           />
           <br />
