@@ -10,9 +10,9 @@ class UserCrudValidation extends Component {
       },
 
       users: [],
+      editIndex: null,
     };
   }
-
   handleChange = (e) => {
     const inputName = e.target.name;
     const enteredValue = e.target.value;
@@ -35,11 +35,29 @@ class UserCrudValidation extends Component {
   };
 
   handleReset = () => {
-    const resetUser = {
+    const newUsers = {
       name: "",
       email: "",
     };
-    this.setState({ user: resetUser });
+    this.setState({ user: newUsers });
+  };
+
+  handleEdit = (usr, i) => {
+    this.setState({ user: usr, editIndex: i });
+  };
+
+  handleDelete = (usr) => {
+    const newUsers = this.state.users.filter((u) => {
+      return u.email !== usr.email;
+    });
+    this.setState({ users: newUsers });
+  };
+
+  handleUpdate = () => {
+    const newUsers = [...this.state.users];
+    newUsers[this.state.editIndex] = this.state.user;
+    this.setState({ users: newUsers, editIndex: null });
+    this.handleReset();
   };
 
   render() {
@@ -62,11 +80,16 @@ class UserCrudValidation extends Component {
             name="email"
             value={this.state.email}
             onChange={this.handleChange}
-          />{" "}
+          />
           <br />
-          <button type="button" onClick={this.handleSubmit}>
+          {/* <button type="button" onClick={this.handleSubmit}>
             Submit
-          </button>
+          </button> */}
+          {this.state.editIndex === null ? (
+            <input type="button" value="Submit" onClick={this.handleSubmit} />
+          ) : (
+            <input type="button" value="Update" onClick={this.handleUpdate} />
+          )}
         </form>
         <hr />
         <table border="1">
@@ -74,6 +97,8 @@ class UserCrudValidation extends Component {
             <tr>
               <th>NAME</th>
               <th>E-Mail</th>
+              <th>Edit</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -82,6 +107,24 @@ class UserCrudValidation extends Component {
                 <tr key={i}>
                   <td>{usr.name}</td>
                   <td>{usr.email}</td>
+                  <td>
+                    <button
+                      onClick={() => {
+                        this.handleEdit(usr, i);
+                      }}
+                    >
+                      Edit
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      onClick={() => {
+                        this.handleDelete(usr);
+                      }}
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               );
             })}
