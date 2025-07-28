@@ -4,6 +4,7 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import { UserCrud } from "./Components/UserCrud";
 import { CrudCar } from "./Components/CrudCar";
+import UserCrudValidation from "./Components/UserCrud-Validation";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -12,7 +13,8 @@ function App() {
     <>
       <div>
         {/* <UserCrud /> */}
-        <CrudCar />
+        {/* <CrudCar /> */}
+        <UserCrudValidation />
       </div>
     </>
   );
