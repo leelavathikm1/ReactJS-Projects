@@ -21,6 +21,7 @@ export class UserCrud extends Component {
     const userEnteredValue = e.target.value;
     const newUser = { ...this.state.user };
     newUser[inputName] = userEnteredValue;
+    // this.setState({[inputName]:userEnteredValue})
     this.setState({ user: newUser });
     // console.log(inputName);
     // console.log(userEnteredValue);

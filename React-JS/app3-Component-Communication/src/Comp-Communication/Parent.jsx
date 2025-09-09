@@ -7,6 +7,7 @@ class Parent extends Component {
 
     this.state = {
       message: "Parent Message Called From Child Component",
+      names: ["Leela", "Kala", "Ram", "Hema"],
     };
   }
 
@@ -22,7 +23,7 @@ class Parent extends Component {
           Click Button
         </button>
 
-        <Child info={this.state.message} />
+        <Child info={this.state.names} />
       </div>
     );
   }

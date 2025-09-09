@@ -6,6 +6,7 @@ import Parent from "./Comp-Communication/Parent";
 import ParentTwo from "./Comp-Communication/ParentTwo";
 import ParentOne from "./Comp-Communication/ParentOne";
 import SiblingsComp from "./Comp-Communication/SiblingsComp";
+import ToggleEvent from "./Comp-Communication/ToggleEvent";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -15,7 +16,8 @@ function App() {
       {/* <Parent /> */}
       {/* <ParentTwo /> */}
       {/* <ParentOne /> */}
-      <SiblingsComp />
+      {/* <SiblingsComp /> */}
+      <ToggleEvent />
     </>
   );
 }

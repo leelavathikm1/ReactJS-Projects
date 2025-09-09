@@ -7,6 +7,7 @@ export default class CrudValdTwo extends Component {
       email: "",
       designation: "",
     },
+    employees: [],
   };
 
   handleChange = (e) => {
@@ -19,7 +20,12 @@ export default class CrudValdTwo extends Component {
     console.log(newEmpName);
   };
 
-  handleSubmit = () => {};
+  handleSubmit = () => {
+    const newEmployees = [...this.state.users];
+    newEmployees.push(this.state.employee);
+    this.setState({ employees: newEmployees });
+    console.log(newEmployees);
+  };
 
   render() {
     return (

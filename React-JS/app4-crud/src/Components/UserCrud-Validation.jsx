@@ -11,6 +11,7 @@ class UserCrudValidation extends Component {
 
       users: [],
       editIndex: null,
+      isValid: false,
     };
   }
   handleChange = (e) => {
@@ -86,7 +87,12 @@ class UserCrudValidation extends Component {
             Submit
           </button> */}
           {this.state.editIndex === null ? (
-            <input type="button" value="Submit" onClick={this.handleSubmit} />
+            <input
+              type="button"
+              value="Submit"
+              onClick={this.handleSubmit}
+              disabled={this.state.isValid}
+            />
           ) : (
             <input type="button" value="Update" onClick={this.handleUpdate} />
           )}
