@@ -15,8 +15,8 @@ export default class RenderParent extends Component {
   render() {
     return (
       <div>
-        <h2>Welcome To User Component </h2>
-        <hr />
+        <h2>Welcome To Parent Component </h2>
+
         <RenderChild
           count={this.state.count}
           handleIncrement={this.incrementCount}
