@@ -7,6 +7,7 @@ import HoverCounter from "../Components/HoverCounter";
 import HocComponent from "../Components/HocComponent";
 import ClickTwo from "../Components/ClickTwo";
 import HoverTwo from "../Components/HoverTwo";
+import ClickComponent from "../Practice-1/ClickComponent";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -16,9 +17,10 @@ function App() {
       {/* <ClickCounter />
       <br />
       <HoverCounter /> */}
-      <ClickTwo />
+      {/* <ClickTwo />
       <br />
-      <HoverTwo />
+      <HoverTwo /> */}
+      <ClickComponent />
     </>
   );
 }
