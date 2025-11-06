@@ -4,10 +4,10 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import ClickCounter from "../Components/ClickCounter";
 import HoverCounter from "../Components/HoverCounter";
-import HocComponent from "../Components/HocComponent";
 import ClickTwo from "../Components/ClickTwo";
 import HoverTwo from "../Components/HoverTwo";
 import ClickComponent from "../Practice-1/ClickComponent";
+import HoverComponent from "../Practice-1/HoverComponent";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -21,6 +21,8 @@ function App() {
       <br />
       <HoverTwo /> */}
       <ClickComponent />
+      <hr />
+      <HoverComponent />
     </>
   );
 }

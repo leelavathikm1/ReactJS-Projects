@@ -1,14 +1,39 @@
 import React, { Component } from "react";
 
-export default class HocComponent extends Component {
-  constructor(props) {
-    super(props);
+function HocComponent(WrappedComponent) {
+  return class extends Component {
+    constructor(props) {
+      super(props);
 
-    this.state = {
-      count: 0,
+      this.state = {
+        count: 0,
+      };
+    }
+
+    incrementCount = () => {
+      this.setState({ count: this.state.count + 1 });
     };
-  }
-  render() {
-    return <div></div>;
-  }
+
+    decrementCount = () => {
+      this.setState({ count: this.state.count - 1 });
+    };
+
+    resetCount = () => {
+      this.setState({ count: 0 });
+    };
+
+    render() {
+      return (
+        <WrappedComponent
+          incrementCount={this.incrementCount}
+          decrementCount={this.decrementCount}
+          resetCount={this.resetCount}
+          count={this.state.count}
+          {...this.props}
+        />
+      );
+    }
+  };
 }
+
+export default HocComponent;

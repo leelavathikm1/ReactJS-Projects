@@ -9,6 +9,9 @@ import HoverCounter from "../Components/HoverCounter";
 import HandleCounter from "../Components/HandleCounter";
 import ShowMessage from "../Components/ShowMessage";
 import HandleCounterTwo from "../Components/HandleCounterTwo";
+import HandleComponent from "../PracticeComponent/HandleComponent";
+import ClickComponent from "../PracticeComponent/ClickComponent";
+import HoverComponent from "../PracticeComponent/HoverComponent";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -29,7 +32,7 @@ function App() {
         }}
       /> */}
 
-      <HandleCounterTwo
+      {/* <HandleCounterTwo
         render={(count, incrementCount, decrementCount, resetCount) => (
           <ClickCounter
             count={count}
@@ -43,6 +46,28 @@ function App() {
       <HandleCounterTwo
         render={(count, incrementCount, decrementCount, resetCount) => (
           <HoverCounter
+            count={count}
+            incrementCount={incrementCount}
+            decrementCount={decrementCount}
+            resetCount={resetCount}
+          />
+        )}
+      /> */}
+
+      <HandleComponent
+        render={(count, incrementCount, decrementCount, resetCount) => (
+          <ClickComponent
+            count={count}
+            incrementCount={incrementCount}
+            decrementCount={decrementCount}
+            resetCount={resetCount}
+          />
+        )}
+      />
+      <hr />
+      <HandleComponent
+        render={(count, incrementCount, decrementCount, resetCount) => (
+          <HoverComponent
             count={count}
             incrementCount={incrementCount}
             decrementCount={decrementCount}
