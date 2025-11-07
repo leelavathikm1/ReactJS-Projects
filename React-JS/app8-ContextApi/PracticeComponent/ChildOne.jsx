@@ -7,8 +7,21 @@ export default class ChildOne extends Component {
       <div>
         <h2>
           <UserContextConsumer>
-            {(values) => {
-              console.log("ChildOne ->", values);
+            {(contextState) => {
+              return (
+                <div>
+                  <h2>{contextState.message}</h2>
+                  {contextState.users.map((user, index) => {
+                    return (
+                      <ul key={index}>
+                        {Object.values(user).map((val, i) => {
+                          return <li key={i}>{val}</li>;
+                        })}
+                      </ul>
+                    );
+                  })}
+                </div>
+              );
             }}
           </UserContextConsumer>
         </h2>

@@ -7,20 +7,20 @@ export default class Child extends Component {
       <div id="childDiv">
         {/* This process is called props drill down */}
         <h4>This process is called props drill down</h4>
-        <ul>
+        {/* <ul>
           <li>{this.props.person.fname}</li>
           <li>{this.props.person.lname}</li>
-        </ul>
+        </ul> */}
         <hr />
         <h4>This is Context API</h4>
         <UserContextConsumer>
-          {(val) => {
+          {/* {(val) => {
             <ul>
               {val.map((obj) => {
                 return Object.values(obj).map((v) => <li key={v}>{v}</li>);
               })}
             </ul>;
-          }}
+          }} */}
         </UserContextConsumer>
       </div>
     );

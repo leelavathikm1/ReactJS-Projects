@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import GrandParent from "./GrandParent";
 import { UserContextProvider } from "./ContextDemo";
+import Child from "./Child";
+import Parent from "./Parent";
 
 export default class Main extends Component {
   constructor(props) {
     super(props);
-
+    message: "From Main Component";
     this.state = {
       person: {
         fname: "Leela",
@@ -33,8 +35,10 @@ export default class Main extends Component {
   render() {
     return (
       <div id="mainDiv">
-        <UserContextProvider value={this.state.users}>
-          <GrandParent person={this.state.person} />
+        <UserContextProvider value={this.state}>
+          {/* <GrandParent /> */}
+          <Parent />
+          {/* <Child /> */}
         </UserContextProvider>
       </div>
     );

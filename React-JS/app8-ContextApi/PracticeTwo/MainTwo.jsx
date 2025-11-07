@@ -1,17 +1,15 @@
 import React, { Component } from "react";
-import { UserContextProvider } from "./ContextOne";
-import ChildOne from "./ChildOne";
+import { PeopleContextProvider } from "./ContextTwo";
+import ChildTwo from "./ChildTwo";
+import ParentTwo from "./ParentTwo";
 
-export default class MainOne extends Component {
+export default class MainTwo extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      message: "Hello From Main Component",
-      person: {
-        fname: "Leela",
-        lname: "KM",
-      },
+      message: "Message from MainTwo Component",
+
       users: [
         {
           id: 1,
@@ -34,9 +32,11 @@ export default class MainOne extends Component {
   render() {
     return (
       <div>
-        <UserContextProvider value={this.state}>
-          <ChildOne />
-        </UserContextProvider>
+        <PeopleContextProvider value={this.state}>
+          <ChildTwo />
+          <hr />
+          <ParentTwo />
+        </PeopleContextProvider>
       </div>
     );
   }
