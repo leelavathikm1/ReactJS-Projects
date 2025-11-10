@@ -8,6 +8,8 @@ import ClickTwo from "../Components/ClickTwo";
 import HoverTwo from "../Components/HoverTwo";
 import ClickComponent from "../Practice-1/ClickComponent";
 import HoverComponent from "../Practice-1/HoverComponent";
+import ClickComp from "../Practice-2/ClickComp";
+import HoverComp from "../Practice-2/HoverComp";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -20,9 +22,13 @@ function App() {
       {/* <ClickTwo />
       <br />
       <HoverTwo /> */}
-      <ClickComponent />
+      {/* <ClickComponent />
       <hr />
-      <HoverComponent />
+      <HoverComponent /> */}
+
+      {/* <ClickComp />
+      <hr />
+      <HoverComp /> */}
     </>
   );
 }

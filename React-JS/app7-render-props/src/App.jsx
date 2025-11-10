@@ -15,6 +15,9 @@ import HoverComponent from "../PracticeComponent/HoverComponent";
 import HandleOne from "../PracticeComponent/HandleOne";
 import ClickOne from "../PracticeComponent/ClickOne";
 import HoverOne from "../PracticeComponent/HoverOne";
+import HandleComp from "../Practice-1/HandleComp";
+import ClickComp from "../Practice-1/ClickComp";
+import HoverComp from "../Practice-1/HoverComp";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -79,7 +82,7 @@ function App() {
         )}
       /> */}
 
-      <HandleOne
+      {/* <HandleOne
         render={(count, increment, decrement, reset) => (
           <ClickOne
             count={count}
@@ -96,6 +99,28 @@ function App() {
             count={count}
             increment={increment}
             decrement={decrement}
+            reset={reset}
+          />
+        )} 
+      />*/}
+
+      <HandleComp
+        render={(count, increase, decrease, reset) => (
+          <ClickComp
+            count={count}
+            increase={increase}
+            decrease={decrease}
+            reset={reset}
+          />
+        )}
+      />
+      <hr />
+      <HandleComp
+        render={(count, increase, decrease, reset) => (
+          <HoverComp
+            count={count}
+            increase={increase}
+            decrease={decrease}
             reset={reset}
           />
         )}

@@ -4,6 +4,9 @@ import "./App.css";
 
 import MainTwo from "../PracticeTwo/MainTwo";
 import Main from "../Components/Main";
+import MainComp from "../Practice-1/MainComp";
+import MainCompThree from "../Practice-2/MainCompThree";
+import MainFour from "../Practice-4/MainFour";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -11,7 +14,10 @@ function App() {
   return (
     <>
       {/* <MainTwo /> */}
-      <Main />
+      {/* <Main /> */}
+      {/* <MainComp /> */}
+      {/* <MainCompThree /> */}
+      <MainFour />
     </>
   );
 }
