@@ -10,6 +10,7 @@ import ClickComponent from "../Practice-1/ClickComponent";
 import HoverComponent from "../Practice-1/HoverComponent";
 import ClickComp from "../Practice-2/ClickComp";
 import HoverComp from "../Practice-2/HoverComp";
+import ClickCompFive from "../Practice-3/ClickCompFive";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -29,6 +30,7 @@ function App() {
       {/* <ClickComp />
       <hr />
       <HoverComp /> */}
+      <ClickCompFive />
     </>
   );
 }
