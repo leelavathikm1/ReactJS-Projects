@@ -4,8 +4,8 @@ const initialState = {
   count: 0,
 };
 
-export const clickCounterSlice = createSlice({
-  name: "clickCounter",
+export const hoverCountSlice = createSlice({
+  name: "HoverCounter",
   reducers: {
     increment: (store) => {
       store.count++;
@@ -20,5 +20,5 @@ export const clickCounterSlice = createSlice({
   initialState: initialState,
 });
 
-export const { increment, decrement, reset } = clickCounterSlice.actions;
-export default clickCounterSlice.reducer;
+export const { increment, decrement, reset } = hoverCountSlice.actions;
+export default hoverCountSlice.reducer;
