@@ -1,24 +1,27 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  count: 0,
+  hoverCount: 0,
 };
 
-export const hoverCountSlice = createSlice({
+export const hoverSlice = createSlice({
   name: "HoverCounter",
+  initialState, // 👉 place it here
   reducers: {
-    increment: (store) => {
-      store.count++;
+    hoverIncrement: (store) => {
+      console.log("hoverIncrement Called !!");
+      store.hoverCount++;
     },
-    decrement: (store) => {
-      store.count--;
+    hoverDecrement: (store) => {
+      store.hoverCount--;
     },
-    reset: (store) => {
-      store.count = 0;
+    hoverReset: (store) => {
+      store.hoverCount = 0;
     },
   },
-  initialState: initialState,
 });
 
-export const { increment, decrement, reset } = hoverCountSlice.actions;
-export default hoverCountSlice.reducer;
+export const { hoverIncrement, hoverDecrement, hoverReset } =
+  hoverSlice.actions;
+
+export default hoverSlice.reducer;

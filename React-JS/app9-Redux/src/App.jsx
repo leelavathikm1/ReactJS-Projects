@@ -1,12 +1,11 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 import { useDispatch, useSelector } from "react-redux";
 import { decrement, increment, reset } from "./CounterSlice";
+import { hoverDecrement, hoverIncrement, hoverReset } from "./HoverSlice";
 
 function App() {
   const count = useSelector((store) => store.counter.count);
+  const hoverCount = useSelector((store) => store.hoverCounter.hoverCount);
   const dispatch = useDispatch();
   console.log(count);
 
@@ -34,6 +33,32 @@ function App() {
       >
         Reset
       </button>
+      <hr />
+      <div>
+        <h2>{hoverCount}</h2>
+        <button
+          onMouseOver={() => {
+            console.log("onMouseOver Called !!!");
+            dispatch(hoverIncrement());
+          }}
+        >
+          Increment
+        </button>
+        <button
+          onMouseOver={() => {
+            dispatch(hoverDecrement());
+          }}
+        >
+          Decrement
+        </button>
+        <button
+          onMouseOver={() => {
+            dispatch(hoverReset());
+          }}
+        >
+          Reset
+        </button>
+      </div>
     </>
   );
 }
