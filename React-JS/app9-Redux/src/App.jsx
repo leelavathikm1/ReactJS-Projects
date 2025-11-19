@@ -9,6 +9,11 @@ import {
   jwelleryReset,
 } from "./JwellerySlice";
 import { bikeDecrement, bikeIncrement, bikereset } from "./BikeSlice";
+import {
+  marutiPriceDecrement,
+  marutiPriceIncrement,
+  marutiPriceReset,
+} from "./MarutiSlice";
 
 function App() {
   const count = useSelector((store) => store.counter.count);
@@ -18,6 +23,7 @@ function App() {
     (store) => store.jwelleryCounter.jwelleryCount
   );
   const bikeCount = useSelector((store) => store.bikeCounter.bikeCount);
+  const marutiCount = useSelector((store) => store.marutisCounter.marutiCount);
   const dispatch = useDispatch();
   console.log(count);
 
@@ -117,7 +123,7 @@ function App() {
         jwelleryReset
       </button> */}
 
-      <h2>BikeCounterSlice : {bikeCount}</h2>
+      {/* <h2>BikeCounterSlice : {bikeCount}</h2>
 
       <button
         onClick={() => {
@@ -141,6 +147,30 @@ function App() {
         }}
       >
         bikereset
+      </button> */}
+
+      <h2>MarutisCountSlice: {marutiCount} </h2>
+
+      <button
+        onClick={() => {
+          dispatch(marutiPriceIncrement());
+        }}
+      >
+        marutiPriceIncrement
+      </button>
+      <button
+        onClick={() => {
+          dispatch(marutiPriceDecrement());
+        }}
+      >
+        marutiPriceDecrement
+      </button>
+      <button
+        onClick={() => {
+          dispatch(marutiPriceReset());
+        }}
+      >
+        marutiPriceReset
       </button>
     </>
   );
