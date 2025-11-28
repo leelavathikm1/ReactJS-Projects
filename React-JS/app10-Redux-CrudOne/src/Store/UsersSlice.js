@@ -43,14 +43,14 @@ export const usersSlice = createSlice({
   name: "users",
   initialState: initialUsers,
   // initialState: [],
-  reducers: {
-    createUser: () => {},
-    updateUser: () => {},
-    deleteUser: () => {},
-    getAllUsers: () => {},
-  },
+  // reducers: {
+  //   createUser: () => {},
+  //   updateUser: () => {},
+  //   deleteUser: () => {},
+  //   getAllUsers: () => {},
+  // },
 });
-export const { createUser, deleteUser, updateUser, getAllUsers } =
-  usersSlice.actions;
+// export const { createUser, deleteUser, updateUser, getAllUsers } =
+//   usersSlice.actions;
 
 export default usersSlice.reducer;

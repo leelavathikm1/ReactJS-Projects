@@ -10,7 +10,7 @@ const Users = () => {
   return (
     <div>
       <h2>Welcome To Users</h2>
-      <UsersTable users={usersDetails} />
+      {/* <UsersTable users={usersDetails} /> */}
     </div>
   );
 };
