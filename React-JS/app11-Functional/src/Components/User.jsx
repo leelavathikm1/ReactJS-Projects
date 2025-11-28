@@ -5,6 +5,7 @@ import axios from "axios";
 export function User(params) {
   const [userInfo, setUserInfo] = useState({ fname: "", lname: "", email: "" });
   const [allUsersInfo, setAllUsersInfo] = useState([]);
+  const [isEdit, setIsEdit] = useState(false);
 
   useEffect(() => {
     getDataFromServer();
@@ -39,6 +40,7 @@ export function User(params) {
     axios.post("http://localhost:3000/users", userInfo).then(function (res) {
       console.log("User Created With Axios");
       getDataFromServer();
+      clearForm();
     });
   };
 
@@ -49,10 +51,33 @@ export function User(params) {
     });
   };
 
-  handleDelete = (user) => {
+  const handleDelete = (user) => {
     axios.delete("http://localhost:3000/users/" + user.id).then(() => {
       getDataFromServer();
     });
+  };
+
+  const clearForm = () => {
+    setUserInfo({
+      fname: "",
+      lname: "",
+      email: "",
+    });
+  };
+
+  const handleEdit = (usr) => {
+    setUserInfo(usr);
+    setIsEdit(true);
+  };
+
+  const updateUser = () => {
+    axios
+      .put("http://localhost:3000/users/" + userInfo.id, userInfo)
+      .then(function () {
+        clearForm();
+        setIsEdit(false);
+        getDataFromServer();
+      });
   };
 
   return (
@@ -84,7 +109,14 @@ export function User(params) {
           onChange={handleChange}
         />{" "}
         <br />
-        <button onClick={createUser}>Add User</button>
+        {isEdit ? (
+          <button type="button" onClick={updateUser}>
+            Update User
+          </button>
+        ) : (
+          <button onClick={createUser}>Add User</button>
+        )}
+        {/* <button onClick={createUser}>Add User</button> */}
       </form>
 
       <br />
@@ -107,10 +139,22 @@ export function User(params) {
                 <td>{user.lname}</td>
                 <td>{user.email}</td>
                 <td>
-                  <button onClick={handleEdit}>Edit</button>
+                  <button
+                    onClick={() => {
+                      handleEdit(user);
+                    }}
+                  >
+                    Edit
+                  </button>
                 </td>
                 <td>
-                  <button onClick={handleDelete(user)}>Delete</button>
+                  <button
+                    onClick={() => {
+                      handleDelete(user);
+                    }}
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             );
