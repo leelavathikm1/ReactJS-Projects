@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="Style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Weather DashBoard</h1>
+
+      <form>
+        <input
+          type="text"
+          id="city-input"
+          placeholder="Enter City Name"
+          autucomplete="off"
+        />
+        <button type="submit">Search</button>
+      </form>
+
+      <p id="status" class="status"></p>
+
+      <section id="weather-card" class="weather-card hidden">
+        <div class="top-row">
+          <div>
+            <h2 id="city-name"></h2>
+            <p id="country"></p>
+            <p id="description" class="description"></p>
+          </div>
+          <img id="weather-icon" alt="weathern icon" />
+        </div>
+
+        <div class="temp-row">
+          <span id="temp" class="temp"></span>
+          <span id="feels-like" class="feels-like"></span>
+        </div>
+
+        <div class="meta-grid">
+          <div class="meta-item">
+            <span class="label">Humidity</span>
+            <span id="humitdity" class="value"></span>
+          </div>
+
+          <div class="meta-item">
+            <span class="label">Wind</span>
+            <span id="wind" class="value"></span>
+          </div>
+
+          <div class="meta-item">
+            <span class="label">Pressure</span>
+            <span id="clouds" class="value"></span>
+          </div>
+
+          <div class="meta-item">
+            <span class="label">Clouds</span>
+            <span id="clouds" class="value"></span>
+          </div>
+        </div>
+
+        <p id="time" class="time"></p>
+      </section>
+    </main>
+
+    <script src="App.js"></script>
+  </body>
+</html>
