@@ -5,6 +5,7 @@ import {
   createUserAsyncAction,
   deleteUserAsyncAction,
   getAllUserAsyncAction,
+  updateUsersAsyncAction,
 } from "./Store/UserSlice";
 
 function App() {
@@ -63,6 +64,13 @@ function App() {
     setIsEdit(true);
   };
 
+  const handleUpdate = () => {
+    console.log("handleUpdate called");
+    dispatch(updateUsersAsyncAction(user));
+    clearForm();
+    setIsEdit(false);
+  };
+
   return (
     <>
       <h2>React Redux Crud Demo</h2>
@@ -91,7 +99,7 @@ function App() {
         ))}
 
         <br />
-        <form onSubmit={handleSubmit}>
+        <form>
           <input
             type="number"
             name="id"
@@ -136,38 +144,21 @@ function App() {
           <br />
           <br />
 
-          <input
-            type="text"
-            name="state"
-            placeholder="Enter State (eg: TN)"
-            value={user.state}
-            onChange={handleChange}
-            required
-          />
-          <br />
-          <br />
-
-          <input
-            type="text"
-            name="zip"
-            placeholder="Enter ZIP Code"
-            value={user.zip}
-            onChange={handleChange}
-            required
-          />
           <br />
           <br />
           {isEdit ? (
             <button
-              type="submit"
+              type="button"
               style={{ background: "green", color: "white" }}
+              onClick={handleUpdate}
             >
               Update
             </button>
           ) : (
             <button
-              type="submit"
+              type="button"
               style={{ background: "green", color: "white" }}
+              onClick={handleSubmit}
             >
               Submit
             </button>
